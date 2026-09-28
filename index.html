@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Circle Checker | Checktron</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Khu vực kéo thả ảnh -->
+    <div id="drop-zone" class="drop-zone">
+        <div class="drop-zone-content">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="17 8 12 3 7 8"></polyline>
+                <line x1="12" y1="3" x2="12" y2="15"></line>
+            </svg>
+            <p>Kéo thả ảnh logo vào đây hoặc <span>chọn file</span></p>
+            <input type="file" id="file-input" accept="image/*" hidden>
+        </div>
+    </div>
+
+    <!-- Khu vực hiển thị ảnh và công cụ -->
+    <div id="workspace" class="workspace hidden">
+        <div class="canvas-container">
+            <img id="logo-image" src="" alt="Logo">
+            
+            <!-- Vòng tròn để check -->
+            <div id="checker-circle" class="checker-circle">
+                <div class="circle-center-mark"></div>
+                <div class="resize-handle"></div>
+            </div>
+        </div>
+
+        <!-- Bảng điều khiển Glassmorphism -->
+        <div class="control-panel">
+            <h2>Công cụ kiểm tra</h2>
+            
+            <div class="control-group">
+                <label>Kích thước vòng tròn</label>
+                <input type="range" id="size-slider" min="50" max="1000" value="300">
+                <small>Hoặc dùng con lăn chuột trên vòng tròn</small>
+            </div>
+
+            <div class="control-group">
+                <label>Độ dày viền</label>
+                <input type="range" id="border-weight" min="1" max="10" value="2">
+            </div>
+
+            <div class="control-group">
+                <label>Màu viền</label>
+                <div class="color-picker-wrapper">
+                    <input type="color" id="border-color" value="#ff0044">
+                    <span id="color-hex">#ff0044</span>
+                </div>
+            </div>
+
+            <button id="reset-btn" class="btn secondary">Đặt lại vị trí</button>
+            <button id="new-image-btn" class="btn primary">Tải ảnh khác</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
